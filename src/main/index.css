@@ -1,0 +1,61 @@
+:root {
+  --fallback-title-bar-height: 35px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.draggable {
+  -webkit-app-region: drag;
+}
+
+.nonDraggable {
+  -webkit-app-region: no-drag;
+}
+
+.titleBarContainer {
+  position: sticky;
+  top: env(titlebar-area-y, 0);
+  height: env(titlebar-area-height, var(--fallback-title-bar-height));
+  width: 100%;
+  cursor: pointer;
+  z-index: 99;
+  box-sizing: content-box;
+}
+
+.titleBar {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  left: env(titlebar-area-x, 0);
+  width: env(titlebar-area-width, 100%);
+}
+
+.titleBar-left {
+  left: env(titlebar-area-x, 0);
+}
+
+#logo {
+  width: calc(11rem - env(titlebar-area-x, 0));
+}
+
+.titleBar-top {
+  top: env(titlebar-area-height, var(--fallback-title-bar-height));
+}
+.titleBar-width {
+  width: env(titlebar-area-width, 100%);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+.titleBarContainer {
+  border-bottom: 1px solid #ccc;
+}
+.draggable-area {
+  flex: 1;
+  height: 100%;
+}

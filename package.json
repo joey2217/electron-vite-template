@@ -1,0 +1,59 @@
+{
+  "name": "electron-vite-template",
+  "version": "0.0.1",
+  "description": "electron-vite-template",
+  "main": "dist/main.mjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joey2217/electron-vite-template.git"
+  },
+  "keywords": [
+    "electron",
+    "vite",
+    "template"
+  ],
+  "author": "Joey",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/joey2217/electron-vite-template/issues"
+  },
+  "homepage": "https://github.com/joey2217/electron-vite-template#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "publish": "npm run build && electron-builder build -c electron-builder.config.cjs -p always",
+    "package": "npm run build && electron-builder build -c electron-builder.config.cjs",
+    "dev": "node scripts/dev.mjs",
+    "dev:renderer": "vite -c vite.config.ts",
+    "build": "vite build -c vite.config.preload.ts && vite build -c vite.config.main.ts && vite build -c vite.config.ts",
+    "prebuild": "npm run check",
+    "check": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.app.json",
+    "test": "vitest",
+    "upload": "node scripts/upload.mjs",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "electron-log": "^5.3.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.25.1",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react-swc": "^3.9.0",
+    "electron": "^35.2.1",
+    "electron-builder": "^26.0.12",
+    "electron-updater": "^6.6.2",
+    "eslint": "^9.25.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.0.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.31.0",
+    "vite": "^6.3.3",
+    "vitest": "^3.1.2"
+  }
+}
